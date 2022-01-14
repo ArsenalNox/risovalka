@@ -13,11 +13,16 @@ html, body{
     width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
 }
 
 .ris-outer-wrapper{
+    border: 1px solid grey;
+    border-radius: 12px;
+    padding: 1rem;
     width: fit-content;
     height: fit-content;
 }
@@ -28,15 +33,25 @@ html, body{
 
 .color-picker-list{
     list-style: none;
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
 }
 
 .color{
     width:  40px;
     height: 40px;
-    background-color: red;
+    background-color: grey;
     border-radius: 100%;
+    margin: auto;
+    transition: 0.2s;
+}
+
+.active-color{
+    width:  45px;
+    height: 45px;
+    background-color: grey;
+    border-radius: 100%;   
 }
 
 .preloaded-color{
@@ -52,13 +67,30 @@ html, body{
 }
 
 .bottom-menu-action-list{
-
+    list-style: none;
 }
 
 .menu-action{
+    cursor: pointer;
+    transition: 0.2s;
+}
 
+.menu-action:hover{
+    text-decoration: underline;
 }
 
 #canvas1{
 
+}
+
+.brush-size-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.brush-size-wrapper p{
+    text-align: center;
 }

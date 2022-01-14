@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рисовалка</title>
+    <title>Рисовалка</title>
 </head>
 <body>
     <section class='main-conten-wrapper'>
@@ -15,16 +15,24 @@
                     <li class='color preloaded-color' picker_color='#FF0000'>  </li>
                     <li class='color preloaded-color' picker_color='#00FF00'>  </li>
                     <li class='color preloaded-color' picker_color='#0000FF'>  </li>
+                    <li class='color preloaded-color' picker_color='#F000FF'>  </li>
+                    <li class='color preloaded-color' picker_color='#FFC0FF'>  </li>
+                    <li class='color preloaded-color' picker_color='#00F0FF'>  </li>
+                    <li class='color preloaded-color' picker_color='#30FABF'>  </li>
                 </ul>
             </div>
+            <div class='brush-size-wrapper'>
+                <p>Размер кисти</p>
+                <input id='brushSizeSelector' type="range" min='1' max='10' value='2'>
+            </div>
             <div>
-                <canvas class='main_canvas' id='canvas1'>
+                <canvas class='main_canvas' id='canvas1' width='300' height="300">
             </div>
             <div class='bottom-menu-wrapper'>
                 <ul class='bottom-menu-action-list'>
-                    <li class='menu-action'>Сохранить рисунок</li>
-                    <li class='menu-action'>Очистить холст</li>
-                    <li class='menu-action'>Добавить свой цвет</li>
+                    <li class='menu-action' onclick="downloadPicture()">Сохранить рисунок</li>
+                    <li class='menu-action' onclick="clearCanvas()">Очистить холст</li>
+                    <li class='menu-action' onclick="addColor()">Добавить свой цвет</li>
                 </ul>
             </div>
         </div>
