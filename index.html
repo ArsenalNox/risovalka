@@ -11,7 +11,7 @@
     <section class='main-conten-wrapper'>
         <div class='ris-outer-wrapper'>
             <div class='color-picker-wrapper'>
-                <ul class='color-picker-list'>
+                <ul class='color-picker-list' id='cpl1'>
                     <li class='color preloaded-color' picker_color='#FF0000'>  </li>
                     <li class='color preloaded-color' picker_color='#00FF00'>  </li>
                     <li class='color preloaded-color' picker_color='#0000FF'>  </li>
@@ -19,6 +19,10 @@
                     <li class='color preloaded-color' picker_color='#FFC0FF'>  </li>
                     <li class='color preloaded-color' picker_color='#00F0FF'>  </li>
                     <li class='color preloaded-color' picker_color='#30FABF'>  </li>
+                    <li class='color preloaded-color bordered' picker_color='#FFF'>  </li>
+                    <li class='color preloaded-color' picker_color='#6D0D6A'>  </li>
+                    <li class='color preloaded-color' picker_color='#091280'>  </li>
+                    <li class='color preloaded-color' picker_color='#000'>  </li>
                 </ul>
             </div>
             <div class='brush-size-wrapper'>
@@ -30,9 +34,9 @@
             </div>
             <div class='bottom-menu-wrapper'>
                 <ul class='bottom-menu-action-list'>
-                    <li class='menu-action' onclick="downloadPicture()">Сохранить рисунок</li>
+                    <li class='menu-action' onclick="downloadPicture(canvas, 'untitled.png')">Сохранить рисунок</li>
                     <li class='menu-action' onclick="clearCanvas()">Очистить холст</li>
-                    <li class='menu-action' onclick="addColor()">Добавить свой цвет</li>
+                    <li class='menu-action' onclick="createColorPopUp()">Добавить свой цвет</li>
                 </ul>
             </div>
         </div>

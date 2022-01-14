@@ -27,10 +27,6 @@ html, body{
     height: fit-content;
 }
 
-.color-picker-wrapper{
-
-}
-
 .color-picker-list{
     list-style: none;
     display: grid;
@@ -47,23 +43,17 @@ html, body{
     transition: 0.2s;
 }
 
+.bordered{
+    border: 1px dotted black;
+    width: 39px;
+    height: 39px;
+}
+
 .active-color{
     width:  45px;
     height: 45px;
     background-color: grey;
     border-radius: 100%;   
-}
-
-.preloaded-color{
-
-}
-
-.main_canvas{
-
-}
-
-.bottom-menu-wrapper{
-
 }
 
 .bottom-menu-action-list{
@@ -79,10 +69,6 @@ html, body{
     text-decoration: underline;
 }
 
-#canvas1{
-
-}
-
 .brush-size-wrapper{
     display: flex;
     flex-direction: column;
@@ -93,4 +79,24 @@ html, body{
 
 .brush-size-wrapper p{
     text-align: center;
+}
+
+.popup-wrapper{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.popup{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.3rem;
+    border: 1px solid grey;
+
 }

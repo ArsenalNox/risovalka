@@ -2,6 +2,8 @@ var current_color = null
 var canvas = document.getElementById('canvas1')
 var ctx = canvas.getContext('2d')
 
+var customColors = []
+
 var dimensions = {
     x: canvas.width,
     y: canvas.height
@@ -43,11 +45,48 @@ function load_main_colors(){
 
 
 function load_custom_colors(){
+    let customColorsLocal = localStorage.getItem('customColorsJSON')
+    if(customColorsLocal){
+        customColors = JSON.parse(customColorsLocal)
+        console.log(customColors) 
+        for (let customColor of customColors){
+             console.log(customColor)
+             let rgbinputValue = customColor
+
+             let newColorLi = document.createElement('li')
+             newColorLi.classList = "color"
+
+             newColorLi.setAttribute('picker_color', rgbinputValue)
+             document.getElementById('cpl1').append(newColorLi)
+        }
+    } else {
+        console.log('custom colors not found')
+    }
 }
 
 
-function downloadPicture(){
+function downloadPicture(c, filename){
 
+    var lnk = document.createElement('a'),
+        e;
+
+    lnk.download = filename;
+
+    lnk.href = c.toDataURL();
+
+    if (document.createEvent) {
+
+        e = document.createEvent("MouseEvents");
+        e.initMouseEvent("click", true, true, window,
+                         0, 0, 0, 0, 0, false, false, false,
+                         false, 0, null);
+
+        lnk.dispatchEvent(e);
+
+    } else if (lnk.fireEvent) {
+
+        lnk.fireEvent("onclick");
+    }
 }
 
 
@@ -55,9 +94,52 @@ function clearCanvas(){
     ctx.clearRect(0, 0, dimensions.x, dimensions.y)
 }
 
+function createColorPopUp(){
+    let popup_wrapper = document.createElement('div')
+    popup_wrapper.className = 'popup-wrapper'
+    popup_wrapper.id = 'ppw1'
 
-function addColor(){
+    let popup = document.createElement('div')
+    popup.className = 'popup'
 
+    let rgbinput = document.createElement('input')
+    rgbinput.type = 'color'
+    rgbinput.id = 'rgbinput'
+
+    let acceptButton = document.createElement('button')
+    acceptButton.innerHTML = 'Сохранить'
+    acceptButton.onclick = function (){
+        let rgbinputValue = document.getElementById('rgbinput').value
+        console.log(rgbinputValue)
+
+        let newColorLi = document.createElement('li')
+        newColorLi.classList = "color"
+
+        newColorLi.setAttribute('picker_color', rgbinputValue)
+        document.getElementById('cpl1').append(newColorLi)
+
+        customColors.push(rgbinputValue)
+        registerColor()
+        load_main_colors()
+        
+        document.body.removeChild(document.getElementById('ppw1'))
+    }
+
+    let closeButton = document.createElement('button')
+    closeButton.innerHTML = 'Отмена'
+    closeButton.id = 'cancelcolor'
+    closeButton.onclick = function (){
+        document.body.removeChild(document.getElementById('ppw1'))
+    }
+
+    popup.append(rgbinput, acceptButton, closeButton)
+    popup_wrapper.append(popup)
+    document.body.append(popup_wrapper)
+}
+
+
+function registerColor(){
+    localStorage.setItem('customColorsJSON', JSON.stringify(customColors))
 }
 
 
@@ -70,9 +152,18 @@ canvas.addEventListener('mousemove', (e) => {
     if(mouse.isHeldDown){
         ctx.beginPath();
         ctx.arc(mouse.posX, mouse.posY, 1+brushSize, 0, 2*Math.PI)
-        ctx.strokeStyle = current_color
-        ctx.stroke()
+        ctx.fillStyle = current_color
+        ctx.fill()
     }
+})
+
+canvas.addEventListener('click', (e) => {
+    mouse.updatePos(e)
+
+    ctx.beginPath();
+    ctx.arc(mouse.posX, mouse.posY, 1+brushSize, 0, 2*Math.PI)
+    ctx.fillStyle = current_color
+    ctx.fill()
 })
 
 document.addEventListener('mousedown', () => {
