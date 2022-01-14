@@ -158,12 +158,14 @@ canvas.addEventListener('mousemove', (e) => {
 })
 
 canvas.addEventListener('click', (e) => {
-    mouse.updatePos(e)
+    if(!mouse.isHeldDown){
+        mouse.updatePos(e)
 
-    ctx.beginPath();
-    ctx.arc(mouse.posX, mouse.posY, 1+brushSize, 0, 2*Math.PI)
-    ctx.fillStyle = current_color
-    ctx.fill()
+        ctx.beginPath();
+        ctx.arc(mouse.posX, mouse.posY, 1+brushSize, 0, 2*Math.PI)
+        ctx.fillStyle = current_color
+        ctx.fill()
+    }
 })
 
 document.addEventListener('mousedown', () => {
