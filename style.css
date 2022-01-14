@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.main-conten-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.ris-outer-wrapper{
+    width: fit-content;
+    height: fit-content;
+}
+
+.color-picker-wrapper{
+
+}
+
+.color-picker-list{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.color{
+    width:  40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 100%;
+}
+
+.preloaded-color{
+
+}
+
+.main_canvas{
+
+}
+
+.bottom-menu-wrapper{
+
+}
+
+.bottom-menu-action-list{
+
+}
+
+.menu-action{
+
+}
+
+#canvas1{
+
+}

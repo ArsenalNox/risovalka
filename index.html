@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang='ru'>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рисовалка</title>
+</head>
+<body>
+    <section class='main-conten-wrapper'>
+        <div class='ris-outer-wrapper'>
+            <div class='color-picker-wrapper'>
+                <ul class='color-picker-list'>
+                    <li class='color preloaded-color' picker_color='#FF0000'>  </li>
+                    <li class='color preloaded-color' picker_color='#00FF00'>  </li>
+                    <li class='color preloaded-color' picker_color='#0000FF'>  </li>
+                </ul>
+            </div>
+            <div>
+                <canvas class='main_canvas' id='canvas1'>
+            </div>
+            <div class='bottom-menu-wrapper'>
+                <ul class='bottom-menu-action-list'>
+                    <li class='menu-action'>Сохранить рисунок</li>
+                    <li class='menu-action'>Очистить холст</li>
+                    <li class='menu-action'>Добавить свой цвет</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src='main.js'></script>
+</html>
